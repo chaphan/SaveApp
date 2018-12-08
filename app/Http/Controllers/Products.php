@@ -18,7 +18,7 @@ class Products extends Controller
         $groups->regdate=date("Y-m-d H:i");
         $groups->save();
     }
-    public function show(Request $request,$id=null){
+    public function show(Request $request, $id=null){
         $groups=new Product();
         if(isset($sid) && $sid!=null){
             $objGroup=$groups->where('id',$id);

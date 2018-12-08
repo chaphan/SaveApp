@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SavingGoal;
 use Illuminate\Http\Request;
 use App\Group;
 class Groups extends Controller
@@ -15,6 +16,13 @@ class Groups extends Controller
         $groups->balance = 0;
         $groups->regdate = date("Y-m-d H:i");
         $groups->save();
+
+        $s_goals = new SavingGoal();
+        $s_goals->description = $request->description;
+        $s_goals->target_amount = $request->target_amount;
+        $s_goals->group_id = $groups->id;
+        $s_goals->save();
+
     }
 
     public function show(Request $request,$id=null){

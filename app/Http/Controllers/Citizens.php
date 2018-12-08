@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Citizen;
 use Illuminate\Http\Request;
-class Citizen extends Controller
+class Citizens extends Controller
 {
     //
     public function  create(Request $request){
@@ -19,6 +20,7 @@ class Citizen extends Controller
         $citizens->regdate=date("Y-m-d H:i");
         $citizens->save();
     }
+
     public function show(Request $request, $id = null){
         $citizens=new Citizen();
         if(isset($sid) && $sid!=null){

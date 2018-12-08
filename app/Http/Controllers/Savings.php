@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Saving;
+use App\SavingGoal;
 use Illuminate\Http\Request;
 
 class Savings extends Controller
@@ -15,6 +16,7 @@ class Savings extends Controller
         $savings->amount=$request->amount;
         $savings->regdate=date("Y-m-d H:i");
         $savings->save();
+
     }
 
     public function show(Request $request,$groupid = null){

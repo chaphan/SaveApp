@@ -167,15 +167,15 @@ if(loadeduser.length!=0){
 
 function registerSaving(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/product",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
+	ajax("/product",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"memberid":$("#memberid").val(),"amount":$("#amount").val()},"POST","text",function(res){
 		if(res=="ok"){
-			loadGroup("setContent",null);
-			$("#names").val("");$("#uname").val("");$("#phone").val("");$("#email").val("");$("#pwd").val("");$("#confPwd").val("");$("#address").val("");$("#nid").val("");
-		$("#regGroupResponse").html("<font color='green'>Group Registered Success</font>");
+			loadSaving("setContent",null);
+			$("#amount").val("")
+		$("#regSavingResponse").html("<font color='green'>Saving Registered Success</font>");
 }else{
-		$("#regGroupResponse").html("<font color='red'>Failed to Register Group</font> ");
+		$("#regSavingResponse").html("<font color='red'>Failed to Register Saving</font> ");
 		}
-clearMsg("#regGroupResponse");
+clearMsg("#regSavingResponse");
 	});
 }
 function loadSaving(){
@@ -191,16 +191,56 @@ if(loadeduser.length!=0){
 		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
              +"<td>"+ loadeduser[i].names +"</td>"
-             +"<td>"+ loadeduser[i].nid+"</td>"
-              +"<td>"+ loadeduser[i].parentid+"</td>"
+             +"<td>"+ loadeduser[i].amount+"</td>"
               +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
 			}
 		}else{
 		 users+="<tr>"
-             +"<td colspan='10'><center>No Groups Members Found</center></td></tr>"
+             +"<td colspan='10'><center>No Saving Found</center></td></tr>"
               }
-			$("#loadedgroupmembers").html(users);
+			$("#loadedsaving").html(users);
+
+}
+
+
+function registerWithdraw(){
+	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/withdraws",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"amount":$("#amount").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadWithdraw("setContent",null);
+			$("#amount").val("")
+		$("#regSavingResponse").html("<font color='green'>Saving Registered Success</font>");
+}else{
+		$("#regSavingResponse").html("<font color='red'>Failed to Register Saving</font> ");
+		}
+clearMsg("#regSavingResponse");
+	});
+}
+function loadWithdraw(){
+	ajax("/withdraws",{cate:'load'},"GET","json",function(res){
+setLoadedSaving(res);
+	});
+}
+
+function setLoadedWithdraw(loaduser){
+var users="";
+if(loadeduser.length!=0){
+		 for(var i=0;i<loadeduser.length;i++){		 
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+         users+="<tr>"
+             +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].names +"</td>"
+             +"<td>"+ loadeduser[i].amount+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+			}
+		}else{
+		 users+="<tr>"
+             +"<td colspan='10'><center>No Saving Found</center></td></tr>"
+              }
+			$("#loadedsaving").html(users);
 
 }
 

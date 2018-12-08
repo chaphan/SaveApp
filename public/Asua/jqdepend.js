@@ -243,8 +243,176 @@ if(loadeduser.length!=0){
 			$("#loadedsaving").html(users);
 
 }
+function registerGroupMembers(){
+	setLoaders({elem:'regMemberResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/members",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"name":$("#names").val(),"nid":$("#nid").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadMembers("setContent",null);
+			$("#nid").val("");$("#names").val("");$("#parentnid").val("");
+		$("#regMemberResponse").html("<font color='green'>Member Registered Success</font>");
+}else{
+		$("#regMemberResponse").html("<font color='red'>Failed to Register Member</font> ");
+		}
+clearMsg("#regMemberResponse");
+	});
+}
+function loadMembers(){
+	ajax("/members",{cate:'load'},"GET","json",function(res){
+setLoadedSaving(res);
+	});
+}
+
+function setLoadedMembers(loaduser){
+var users="";
+if(loadeduser.length!=0){
+		 for(var i=0;i<loadeduser.length;i++){		 
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+         users+="<tr>"
+             +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].names +"</td>"
+             +"<td>"+ loadeduser[i].nid+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+			}
+		}else{
+		 users+="<tr>"
+             +"<td colspan='10'><center>No Saving Found</center></td></tr>"
+              }
+			$("#loadedsaving").html(users);
+
+}
 
 
+function registerConfigurations(){
+	setLoaders({elem:'regMemberResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/configuration",{"cate":"register","sessid":$("#sessid").val(),"names":$("#names").val(),"amount":$("#amount").val(),"ratio":$("#ratio").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadConfiguration("setContent",null);
+			$("#nid").val("");$("#names").val("");$("#parentnid").val("");
+		$("#regMemberResponse").html("<font color='green'>Member Registered Success</font>");
+}else{
+		$("#regMemberResponse").html("<font color='red'>Failed to Register Member</font> ");
+		}
+clearMsg("#regMemberResponse");
+	});
+}
+function loadConfiguration(){
+	ajax("/configuration",{cate:'load'},"GET","json",function(res){
+setLoadedConfiguration(res);
+	});
+}
+
+function setLoadedConfiguration(loaduser){
+var users="";
+if(loadeduser.length!=0){
+		 for(var i=0;i<loadeduser.length;i++){		 
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+         users+="<tr>"
+             +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].names +"</td>"
+             +"<td>"+ loadeduser[i].nid+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+			}
+		}else{
+		 users+="<tr>"
+             +"<td colspan='10'><center>No Configuration Found</center></td></tr>"
+              }
+			$("#loadedsaving").html(users);
+
+}
+
+function registerIdea(){
+	setLoaders({elem:'regIdeaResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/idea",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadConfiguration("setContent",null);
+			$("#names").val("");$("#descr").val("");$("#amountmin").val("");$("#amountmax").val("");
+		$("#regIdeaResponse").html("<font color='green'>Idea Registered Success</font>");
+}else{
+		$("#regIdeaResponse").html("<font color='red'>Failed to Register Idea</font> ");
+		}
+clearMsg("#regIdeaResponse");
+	});
+}
+function loadIdea(){
+	ajax("/idea",{cate:'load'},"GET","json",function(res){
+setLoadedConfiguration(res);
+	});
+}
+
+function setLoadedIdea(loaduser){
+var users="";
+if(loadeduser.length!=0){
+		 for(var i=0;i<loadeduser.length;i++){		 
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+         users+="<tr>"
+             +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].names +"</td>"
+             +"<td>"+ loadeduser[i].nid+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+			}
+		}else{
+		 users+="<tr>"
+             +"<td colspan='10'><center>No Configuration Found</center></td></tr>"
+              }
+			$("#loadedidea").html(users);
+
+}
+
+function registerFundingProject(){
+	setLoaders({elem:'regFundingProjectResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/fundproject",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadConfiguration("setContent",null);
+			$("#names").val("");$("#descr").val("");$("#amountmin").val("");$("#amountmax").val("");
+		$("#regFundingProjectResponse").html("<font color='green'>Idea Registered Success</font>");
+}else{
+		$("#regFundingProjectResponse").html("<font color='red'>Failed to Register Idea</font> ");
+		}
+clearMsg("#regFundingProjectResponse");
+	});
+}
+function addFunds(){
+	setLoaders({elem:'regFundsResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/fundproject",{"cate":"register","sessid":$("#sessid").val(),"projectid":$("#projectid").val(),"amount":$("#amount").val()},"POST","text",function(res){
+		if(res=="ok"){
+			loadConfiguration("setContent",null);
+			$("#amount").val("");
+		$("#regFundingProjectResponse").html("<font color='green'>Fund Registered Success</font>");
+}else{
+		$("#regFundingProjectResponse").html("<font color='red'>Failed to Register Fund</font> ");
+		}
+clearMsg("#regFundingProjectResponse");
+	});
+}
+function loadFundingProject(){
+	ajax("/fundproject",{cate:'load'},"GET","json",function(res){
+setLoadedFundingProject(res);
+	});
+}
+
+function setLoadedFundingProject(loaduser){
+var users="";
+if(loadeduser.length!=0){
+		 for(var i=0;i<loadeduser.length;i++){		 
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+         users+="<tr>"
+             +"<td>"+ (parseInt(i)+1)+"</td>"
+             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].names +"</td>"
+             +"<td>"+ loadeduser[i].nid+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+			}
+		}else{
+		 users+="<tr>"
+             +"<td colspan='10'><center>No Configuration Found</center></td></tr>"
+              }
+			$("#loadedidea").html(users);
+
+}
+//==========Optionals====================================
 function setComboSelection(obj,elem,reference) {
     var selreps="";
     selreps="<option value='default'>Select Rate Type</option>";

@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/group', 'Groups@show');
+Route::get('/members', 'Members@show');
+Route::get('/group', 'Group@show');
+Route::get('/group', 'Group@show');
+Route::get('/group', 'Group@show');

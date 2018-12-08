@@ -1,0 +1,36 @@
+$("#btnSaveGroup").click(function(e){
+	e.preventDefault();
+	registerGroup();
+})
+$("#btnSaveProducts").click(function(e){
+	e.preventDefault();
+	registerProducts();
+})
+$("#btnSaveSaving").click(function(e){
+	e.preventDefault();
+	registerSaving();
+})
+$("#btnSaveWithdraw").click(function(e){
+	e.preventDefault();
+	registerWithdraw();
+})
+$("#btnSaveGroupMembers").click(function(e){
+	e.preventDefault();
+	registerGroupMembers();
+})
+$("#btnSaveConfigurations").click(function(e){
+	e.preventDefault();
+	registerGrup();
+})
+$("#btnSaveIdea").click(function(e){
+	e.preventDefault();
+	registerGrup();
+})
+$("#btnSaveFundingProjects").click(function(e){
+	e.preventDefault();
+	registerFundingProjects();
+})
+$("#btnAddFund").click(function(e){
+	e.preventDefault();
+	addFunds();
+})

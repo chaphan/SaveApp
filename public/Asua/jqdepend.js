@@ -9,7 +9,7 @@ $.ajax({
 }
 function registerGroup(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/group",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
+	ajax("/group/create",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadGroup("setContent",null);
 			$("#names").val("");$("#uname").val("");$("#phone").val("");$("#email").val("");$("#pwd").val("");$("#confPwd").val("");$("#address").val("");$("#nid").val("");
@@ -127,7 +127,7 @@ if(loadeduser.length!=0){
 
 function registerProducts(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/product",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
+	ajax("/product/create",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadGroup("setContent",null);
 			$("#names").val("");$("#uname").val("");$("#phone").val("");$("#email").val("");$("#pwd").val("");$("#confPwd").val("");$("#address").val("");$("#nid").val("");
@@ -167,7 +167,7 @@ if(loadeduser.length!=0){
 
 function registerSaving(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/product",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"memberid":$("#memberid").val(),"amount":$("#amount").val()},"POST","text",function(res){
+	ajax("/saving/create",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"memberid":$("#memberid").val(),"amount":$("#amount").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadSaving("setContent",null);
 			$("#amount").val("")
@@ -207,7 +207,7 @@ if(loadeduser.length!=0){
 
 function registerWithdraw(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/withdraws",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"amount":$("#amount").val()},"POST","text",function(res){
+	ajax("/withdraws/create",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"amount":$("#amount").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadWithdraw("setContent",null);
 			$("#amount").val("")
@@ -245,7 +245,7 @@ if(loadeduser.length!=0){
 }
 function registerGroupMembers(){
 	setLoaders({elem:'regMemberResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/members",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"name":$("#names").val(),"nid":$("#nid").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
+	ajax("/members/create",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"name":$("#names").val(),"nid":$("#nid").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadMembers("setContent",null);
 			$("#nid").val("");$("#names").val("");$("#parentnid").val("");
@@ -285,7 +285,7 @@ if(loadeduser.length!=0){
 
 function registerConfigurations(){
 	setLoaders({elem:'regMemberResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/configuration",{"cate":"register","sessid":$("#sessid").val(),"names":$("#names").val(),"amount":$("#amount").val(),"ratio":$("#ratio").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
+	ajax("/configuration/create",{"cate":"register","sessid":$("#sessid").val(),"names":$("#names").val(),"amount":$("#amount").val(),"ratio":$("#ratio").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadConfiguration("setContent",null);
 			$("#nid").val("");$("#names").val("");$("#parentnid").val("");
@@ -324,7 +324,7 @@ if(loadeduser.length!=0){
 
 function registerIdea(){
 	setLoaders({elem:'regIdeaResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/idea",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
+	ajax("/idea/create",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadConfiguration("setContent",null);
 			$("#names").val("");$("#descr").val("");$("#amountmin").val("");$("#amountmax").val("");
@@ -363,7 +363,7 @@ if(loadeduser.length!=0){
 
 function registerFundingProject(){
 	setLoaders({elem:'regFundingProjectResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/fundproject",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
+	ajax("/fundproject/create",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"description":$("#descr").val(),"amountmin":$("#amountmin").val(),"amountmax":$("#amountmax").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadConfiguration("setContent",null);
 			$("#names").val("");$("#descr").val("");$("#amountmin").val("");$("#amountmax").val("");

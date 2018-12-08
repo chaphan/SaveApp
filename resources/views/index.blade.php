@@ -8,6 +8,7 @@
     @include('modals.add_groups')
     @include('modals.add_members')
     @include('modals.view_members')
+    @include('modals.business_idea')
 @endsection
 
 @section('content')
@@ -32,10 +33,10 @@
 
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-send"></i>Product <span class="label label-info pull-right">30</span> </a>
+                            <a href=""><i class="fa fa-send"></i>Product <span class="label label-info pull-right">4</span> </a>
                         </li>
                         <li>
-                        <a href="#myModal" data-toggle="modal3"> <span class="label label-info pull-right">3</span>Business Idea</a>
+                           <a href="#myModal3" data-toggle="modal"><span class="label label-info pull-right">3</span>Business Idea</a>
                         </li>                        
                         
                         <li>

@@ -7,10 +7,26 @@
                 <h4 class="modal-title">Saving Group</h4>
             </div>
             <div class="modal-body">
-                <table>
-                <tr><th>Name</th><th>NID</th><th>Parent Nid</th><th>Regdate</th></tr>
-                <tr><th>MANZI Roger</th><th>1199880045073123</th><th>N/A</th><th>2018-09-12</th></tr>
-                </table>
+            <table class="table table-inbox table-hover">
+            <tbody>
+            <tr>
+                <th>#</th><th>FirstName</th><th>Lastname</th><th>Gender</th><th>DOB</th><th colspan="2">Actions</th>
+            </tr> 
+            <tr>
+                <td>1</td>
+                <td>Manzi</td>
+                <td>Roger</td>
+                <td>Male</td>
+                <td>1/1/1997</td>  
+                <td> 
+                    <a href="#">edit</a>
+                    <a href="#">Delete</a>
+                
+                </td>         
+            
+                
+            </tbody>
+        </table>
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">  

@@ -35,7 +35,7 @@
                             <a href=""><i class="fa fa-send"></i>Product <span class="label label-info pull-right">30</span> </a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right">30</span>Cloud funding</a>
+                        <a href="#myModal" data-toggle="modal3"> <span class="label label-info pull-right">3</span>Business Idea</a>
                         </li>                        
                         
                         <li>

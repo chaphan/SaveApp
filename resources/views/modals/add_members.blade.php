@@ -21,6 +21,7 @@
                             <input type="date" placeholder="Enter NID"class="form-control" name="lname">
                         </div>
                         <label class="checkbox-inline">
+                        Gender:
                                 Male<input type="radio" name="optionsRadiosinline" id="optionsRadios1"
                                 value="option1" checked>  
                                 Female<input type="radio" name="optionsRadiosinline" id="optionsRadios2"

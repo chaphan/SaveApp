@@ -523,3 +523,114 @@ footer
         font-size: 24px;
     }
 }
+
+
+/* Shop - Base */
+.shop {
+    margin-top: -10px;
+}
+
+.shop ul.products {
+    margin: 0;
+    padding: 25px 0;
+    list-style: none;
+}
+
+.shop ul.products:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.shop ul.products .product {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.shop ul.products .product a {
+    text-decoration: none;
+}
+
+.shop ul.products .product .add-to-cart-product {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 10px 5px;
+    font-size: 0.9em;
+    color: #FFF;
+    background: #222;
+    z-index: 1;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.shop ul.products .product .add-to-cart-product .fa {
+    margin-right: 3px;
+    font-size: 1.1em;
+}
+
+.shop ul.products .product:hover .add-to-cart-product {
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.shop ul.products .product:hover .add-to-cart-product:hover {
+    background: #000;
+}
+
+.shop ul.products .product .price {
+    display: block;
+    min-height: 28px;
+}
+
+.shop ul.products .product .price del {
+    color: rgba(145, 145, 145, 0.5);
+    font-size: 0.7em;
+    margin: -2px 0 0;
+}
+
+.shop ul.products .product .price ins {
+    text-decoration: none;
+}
+
+.shop ul.products .product .price .amount {
+    font-size: 1.3em;
+}
+
+.shop ul.products .product .onsale {
+    position: absolute;
+    background-image: none;
+    border-radius: 100%;
+    left: auto;
+    right: 0;
+    top: -15px;
+    text-shadow: none;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    z-index: 10;
+    box-shadow: none;
+    font-size: 0.9em;
+    color: #FFF;
+    border-bottom: 2px solid transparent;
+}
+
+.banner .bg-color {
+    background-color: RGBA(82, 165, 234, 0.62);;
+    min-height: 650px;
+}
+
+.btn-dark {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #148e9c;
+}

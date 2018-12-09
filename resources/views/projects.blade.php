@@ -91,7 +91,7 @@
                         <table class="table table-inbox table-hover">
                             <tbody>
                             <tr>
-                                <th>#</th><th>Group Name</th><th>Project</th><th>Attachment</th><th>Capital</th><th>Raised</th><th>Fund</th><th>Description</th><th>created on</th><th colspan="2">Actions</th>
+                                <th>#</th><th>Group Name</th><th>Project</th><th>Attachment</th><th>Capital</th><th>Raised</th><th>Fund</th><th>Description</th><th>created on</th><!-- <th colspan="2">Actions</th> -->
                             </tr> 
                             <tr>
                                 <td>1</td>
@@ -102,8 +102,8 @@
                                 <td>65,000</td>
                                 <td>12,000</td>
                                 <td>Project to transform refugees daily life</td>
-                                <td>2018-06-30</td>
-                                <td><a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td> 
+                                <td>2018-06-30</td><!-- 
+                                <td><a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td> --> 
                                 </tr>
                             <tr>
                                 <td>2</td>
@@ -114,9 +114,9 @@
                                 <td>7000 rwf</td>
                                 <td>1500 rwf</td>
                                 <td>Project that can help refugees to get more tomatoes to make their life more Healthier </td>
-                                <td>2018-11-27</td> 
+                                <td>2018-11-27</td> <!-- 
                                 <td> 
-                                    <a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td></tr> 
+                                    <a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td> --></tr> 
 
                             <tr>
                             </tbody>

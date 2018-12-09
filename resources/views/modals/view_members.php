@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div aria-hidden="true" aria-labelledby="modalViewMember" role="dialog" tabindex="-1" id="modalViewMember" class="modal fade" style="display: none;">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="width:800px;">
             <div class="modal-header">
                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                 <h4 class="modal-title">Saving Group</h4>
@@ -10,14 +10,16 @@
             <table class="table table-inbox table-hover">
             <tbody>
             <tr>
-                <th>#</th><th>FirstName</th><th>Lastname</th><th>Gender</th><th>DOB</th><th colspan="2">Actions</th>
+                <th>#</th><th>FirstName</th><th>Lastname</th><th>Gender</th><th>DOB</th><th>NID</th><th>Balance</th><th colspan="2">Actions</th>
             </tr> 
             <tr>
                 <td>1</td>
                 <td>Manzi</td>
                 <td>Roger</td>
                 <td>Male</td>
-                <td>1/1/1997</td>  
+                <td>1/1/1997</td> 
+                <td>1199680144406050</td> 
+                <td>20000</td>  
                 <td> 
                     <a href="#">edit</a>
                     <a href="#">Delete</a>

@@ -11,14 +11,13 @@
 				      </button>
 				      <a class="navbar-brand" href="#">BahoNeza</a>
 				    </div>
+                    <div class="navigation collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#myModal2" data-toggle="modal"><i class="fa fa-gear"></i> Settings</a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i> Exit</a></li>
+            </ul>
+        </div>
 				    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-				      <!-- <ul class="nav navbar-nav">
-				        <li class="active"><a href="#banner">Home</a></li>
-				        <li class=""><a href="#service">Services</a></li>
-				        <li class=""><a href="#about">About</a></li>
-				        <li class=""><a href="#testimonial">Testimonial</a></li>
-				        <li class=""><a href="#contact">Contact</a></li>
-				      </ul> -->
 				    </div>
 				</div>
 			  </div>

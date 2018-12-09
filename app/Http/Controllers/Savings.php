@@ -16,6 +16,7 @@ class Savings extends Controller
         $savings->amount=$request->amount;
         $savings->regdate=date("Y-m-d H:i");
         $savings->save();
+        return 'ok';
 
     }
 

@@ -7,12 +7,17 @@ $.ajax({
  }
  });
 }
+$.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $("meta[name='csrf-token']").attr("content")
+        }
+    });
 function registerGroup(){
 	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/group/create",{"cate":"register","sessid":$("#sessid").val(),"name":$("#names").val(),"uname":$("#uname").val(),"nid":$("#nid").val(),"phone":$("#phone").val(),"email":$("#email").val(),"category":$("#userCate").val(),"password":$("#pwd").val(),"address":$("#address").val()},"POST","text",function(res){
+	ajax("/group/create",{"names":$("#names").val(),"username":$("#names").val(),"names":$("#names").val()},"POST","text",function(res){
 		if(res=="ok"){
 			loadGroup("setContent",null);
-			$("#names").val("");$("#uname").val("");$("#phone").val("");$("#email").val("");$("#pwd").val("");$("#confPwd").val("");$("#address").val("");$("#nid").val("");
+			$("#names").val("");
 		$("#regGroupResponse").html("<font color='green'>Group Registered Success</font>");
 }else{
 		$("#regGroupResponse").html("<font color='red'>Failed to Register Group</font> ");
@@ -23,7 +28,7 @@ clearMsg("#regGroupResponse");
 function loadGroup(cate,reference){
 	var data={};data.cate="load";
 	if(cate=='setContent'){
-	setLoaders({elem:'tblGroups',elemtype:'table',msg:'Loading Data...'});
+//	setLoaders({elem:'tblGroups',elemtype:'table',msg:'Loading Data...'});
 }else if(cate=='setComboCommissioner'){
 	data.cate="loadcommissioner";
 }
@@ -49,30 +54,13 @@ function setLoadedGroup(loadeduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].names +"</td>"
-             +"<td>"+ loadeduser[i].balance+"</td>"
-              +"<td>"+ loadeduser[i].numbers+"</td>"
+             +"<td>"+ 15000+"</td>"
               +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td>"
-              +"<td style='text-align:center;position:inherit;' class='infostester'><li class='dropdown' style='list-style-type:none'><a href='#'id='dropBtnTester"+i+"' class='btn btn-primary glyphicon glyphicon-full-screen dropdown-toggle' data-toggle='dropdown'>More <i class='fa fa-caret-down'></i></a>"
-               +"</a>"
-                 +"<ul id='dropMenus"+i+"' class='dropdown-menu text-white' role='menu' aria-labelledby='dropBtn"+i+"'>"
-              +"<li><div class='umoreInfo' style='padding-left:5px;padding-right:5px;'> Groupname:"+loadeduser[i]name+"<br>Registered:"+loadeduser[i].usr_registered+(loadeduser[i].usr_registered==0?" Person":" People")+" <br> Balance:"+(loadeduser[i].usr_amount!=null?cashSeparator(loadeduser[i].usr_amount.toString(),",",3):0)+" RWF <br> Paid:"+cashSeparator(loadeduser[i].paid_amount.toString(),",",3)+" RWF<br> Remain:"+cashSeparator(loadeduser[i].usr_remain_amount.toString(),",",3)+" RWF<br> Address:"+loadeduser[i].address+"</div></li>"
-              +"</div></ul></li></td>"
-              +"<td style='text-align:center;position:inherit;' class='cflmore'><li class='dropdown' style='list-style-type:none'><a href='#'id='dropBtn"+i+"' class='btn btn-info glyphicon glyphicon-full-screen dropdown-toggle' data-toggle='dropdown'>Action <i class='fa fa-caret-down'></i></a>"
-               +"</a>"
-                 +"<ul id='dropMenus"+i+"' class='dropdown-menu text-white' role='menu' aria-labelledby='dropBtn"+i+"'>"
-               /* +"<td style='text-align:center;'><a href='#' onclick='loadGroupById(\"reset\","+loadeduser[i].uid+")' class='btn btn-primary reset' data-toggle='modal' data-target='#modalResetGroup'><i class='fa fa-lock'></i> Reset</a> &nbsp;&nbsp;"
-             +"<a href='#'  onclick='loadGroupById(\"edit\","+loadeduser[i].uid+")'  class='btn btn-warning edituser glyphicon glyphicon-pencil'>Edit</a>"
-              +"&nbsp;&nbsp;&nbsp;<a href='#' onclick='loadGroupById(\"delete\","+loadeduser[i].uid+")' class='btn btn-danger glyphicon glyphicon-remove' data-toggle='modal' data-target='#delModal' >Delete</a>"
-                +"</a></td>"
-               */
-              +"<li><a href='#' onclick='loadGroupById(\"members\","+loadeduser[i].uid+")' class='btn btn-primary reset' data-toggle='modal' data-target='#modalMembersGroup'><i class='fa fa-lock'></i> Reset</a></li>"
-              +"<li><a href='#'  onclick='loadGroupById(\"edit\","+loadeduser[i].uid+")'  class='btn btn-warning edituser glyphicon glyphicon-pencil'>Edit</a></li>"
-              +"<li><a href='#' onclick='loadGroupById(\"delete\","+loadeduser[i].uid+")' class='btn btn-danger glyphicon glyphicon-remove' data-toggle='modal' data-target='#delModal' >Delete</a></li>"
-              +"</div></ul></li></td>"
+              +'<td><button type="button" class="btn btn-default" onclick="document.getElementById(\'groupid\').value='+loadeduser[i].id+'"  data-toggle="modal" data-target="#modalAddMember"> Add members</button>  <button type="button" onclick=\"loadMembers('+loadeduser[i].id+')\" class="btn btn-success" data-toggle="modal" data-target="#modalViewMember"> view members</button>';
             +"</tr>";
 			}
 		}else{
@@ -109,7 +97,7 @@ function setLoadedGroupMembers(){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].names +"</td>"
@@ -148,7 +136,7 @@ function setLoadedProducts(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].names +"</td>"
@@ -166,20 +154,20 @@ if(loadeduser.length!=0){
 
 
 function registerSaving(){
-	setLoaders({elem:'regGroupResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/saving/create",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"memberid":$("#memberid").val(),"amount":$("#amount").val()},"POST","text",function(res){
+	setLoaders({elem:'regSavingResponse',elemtype:'container',msg:'Saving Data...'});
+	ajax("/saving/create",{"groupid":$("#groupid").val(),"memberid":$("#memberid").val(),"amount":$("#amountSaving").val()},"POST","text",function(res){
 		if(res=="ok"){
-			loadSaving("setContent",null);
-			$("#amount").val("")
+			$("#amountSaving").val("")
 		$("#regSavingResponse").html("<font color='green'>Saving Registered Success</font>");
-}else{
+loadSaving("setContent",null);
+			}else{
 		$("#regSavingResponse").html("<font color='red'>Failed to Register Saving</font> ");
 		}
 clearMsg("#regSavingResponse");
 	});
 }
 function loadSaving(){
-	ajax("/saving",{cate:'load'},"GET","json",function(res){
+	ajax("/saving",{},"GET","json",function(res){
 setLoadedSaving(res);
 	});
 }
@@ -188,7 +176,7 @@ function setLoadedSaving(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].group_names +"</td>"
@@ -228,7 +216,7 @@ function setLoadedWithdraw(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].group_names +"</td>"
@@ -245,40 +233,41 @@ if(loadeduser.length!=0){
 }
 function registerGroupMembers(){
 	setLoaders({elem:'regMemberResponse',elemtype:'container',msg:'Saving Data...'});
-	ajax("/members/create",{"cate":"register","sessid":$("#sessid").val(),"groupid":$("#groupid").val(),"name":$("#names").val(),"nid":$("#nid").val(),"parentinid":$("#parentinid").val()},"POST","text",function(res){
+	ajax("/members/create",{"groupid":$("#groupid").val(),"groupid":$("#groupid").val(),"names":$("#memberNames").val(),"nid":$("#memberNid").val(),"parentid":($("#parentnid").val()==null?0:$("#parentnid").val())},"POST","text",function(res){
 		if(res=="ok"){
-			loadMembers("setContent",null);
-			$("#nid").val("");$("#names").val("");$("#parentnid").val("");
+			$("#memberNid").val("");$("#memberNames").val("");$("#parentnid").val("");
 		$("#regMemberResponse").html("<font color='green'>Member Registered Success</font>");
-}else{
+loadMembers("setContent",null);
+			}else{
 		$("#regMemberResponse").html("<font color='red'>Failed to Register Member</font> ");
 		}
 clearMsg("#regMemberResponse");
 	});
 }
-function loadMembers(){
-	ajax("/members",{cate:'load'},"GET","json",function(res){
-setLoadedSaving(res);
+function loadMembers(id){
+	ajax("/members/"+id,{},"GET","json",function(res){
+setLoadedMembers(res);
 	});
 }
 
-function setLoadedMembers(loaduser){
+function setLoadedMembers(loadeduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
-             +"<td>"+ loadeduser[i].group_names +"</td>"
+             +"<td>"+ loadeduser[i].group_name +"</td>"
              +"<td>"+ loadeduser[i].names +"</td>"
-             +"<td>"+ loadeduser[i].nid+"</td>"
-              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td></tr>"
+             +"<td>"+ (loadeduser[i].nid!=0?loadeduser[i].nid:loadeduser[i].parentnid)+"</td>"
+              +"<td>"+ loadeduser[i].regdate.substring(0,16)+"</td>"
+              +"<td><button class='btn btn-default' data-dismiss='modal' onclick='document.getElementById(\"groupid\").value="+loadeduser[i].group_id+";document.getElementById(\"memberid\").value="+loadeduser[i].member_id+"' data-toggle='modal' data-target='#modalAddMoney'>Add Money</button></td></tr>"
 			}
 		}else{
 		 users+="<tr>"
-             +"<td colspan='10'><center>No Saving Found</center></td></tr>"
+             +"<td colspan='10'><center>No Members Found</center></td></tr>"
               }
-			$("#loadedsaving").html(users);
+			$("#loadedmembers").html(users);
 
 }
 
@@ -306,7 +295,7 @@ function setLoadedConfiguration(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].group_names +"</td>"
@@ -345,7 +334,7 @@ function setLoadedIdea(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].group_names +"</td>"
@@ -397,7 +386,7 @@ function setLoadedFundingProject(loaduser){
 var users="";
 if(loadeduser.length!=0){
 		 for(var i=0;i<loadeduser.length;i++){		 
-		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i]name,phone:loadeduser[i].phone};
+		 	var passdata={cate:'setContent',reference:loadeduser[i].uid,username:loadeduser[i].name,phone:loadeduser[i].phone};
          users+="<tr>"
              +"<td>"+ (parseInt(i)+1)+"</td>"
              +"<td>"+ loadeduser[i].group_names +"</td>"

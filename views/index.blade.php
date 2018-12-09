@@ -8,7 +8,7 @@
     @include('modals.add_groups')
     @include('modals.add_members')
     @include('modals.view_members')
-    @include('modals.add_money')
+    @include('modals.business_idea')
 @endsection
 
 @section('content')
@@ -29,18 +29,16 @@
                     </div>
                     <ul class="inbox-nav inbox-divider">
                         <li class="active">
-                        <a href="/" data-toggle="modal"><i class="fa fa-inbox"></i> Groups <span class="label label-danger pull-right"></span></a>
+                        <a href="#myModal" data-toggle="modal"><i class="fa fa-inbox"></i> Groups <span class="label label-danger pull-right">2</span></a>
 
                         </li>
                         <li>
-                            <a href="/products/view"><i class="fa fa-send"></i>Product <span class="label label-info pull-right"></span> </a>
+                            <a href=""><i class="fa fa-send"></i>Product <span class="label label-info pull-right">4</span> </a>
                         </li>
                         <li>
-                            <a href="/project/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Cloud funding</a>
-                        </li>
-                        <li>
-                            <a href="/idea/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Business Idea</a>
-                        </li>
+                           <a href="#myModal3" data-toggle="modal"><span class="label label-info pull-right">3</span>Business Idea</a>
+                        </li>                        
+                        
                         <li>
                             <a href="#myModal2" data-toggle="modal"><i class=" fa fa-gear"></i> Logout</a>
                         </li>
@@ -70,7 +68,7 @@
                         <h4>List of Groups and Product</h4>
                         <form action="#" class="pull-right position">
                             <div class="input-append">
-                                <input type="text" class="sr-input" placeholder="Search Group">
+                                <input type="text" class="sr-input" placeholder="Search Order">
                                 <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
@@ -88,18 +86,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <input type="hidden" name="" id="groupid">
-                        <input type="hidden" name="" id="memberid">
                         <table class="table table-inbox table-hover">
-                            <thead>
+                            <tbody>
                             <tr>
-                                <th>#</th><th>Group Name</th><th>balance</th><th>created on</th><th colspan="2">Actions</th>
-                            </tr> </thead>
-                            <tbody id="loadedgroup">
+                                <th>#</th><th>Group Name</th><th>balance</th><th>Members</th><th>created on</th><th colspan="2">Actions</th>
+                            </tr> 
                             <tr>
                                 <td>1</td>
                                 <td>baho</td>
                                 <td>15000rwf</td>
+                                <td>15</td>
                                 <td>1/1/2017</td> 
                                 <td> 
                                     <div class="btn-group"><button type="button" class="btn btn-default"  data-toggle="modal" data-target="#modalAddMember"> Add members</button>  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalViewMember"> view members</button> </td>         

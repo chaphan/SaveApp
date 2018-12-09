@@ -6,7 +6,7 @@ $("#btnSaveProducts").click(function(e){
 	e.preventDefault();
 	registerProducts();
 })
-$("#btnSaveSaving").click(function(e){
+$("#btnSaveMoney").click(function(e){
 	e.preventDefault();
 	registerSaving();
 })
@@ -14,17 +14,17 @@ $("#btnSaveWithdraw").click(function(e){
 	e.preventDefault();
 	registerWithdraw();
 })
-$("#btnSaveGroupMembers").click(function(e){
+$("#btnSaveMember").click(function(e){
 	e.preventDefault();
 	registerGroupMembers();
 })
 $("#btnSaveConfigurations").click(function(e){
 	e.preventDefault();
-	registerGrup();
+	registerIdea();
 })
 $("#btnSaveIdea").click(function(e){
 	e.preventDefault();
-	registerGrup();
+	registerIdea();
 })
 $("#btnSaveFundingProjects").click(function(e){
 	e.preventDefault();
@@ -34,3 +34,11 @@ $("#btnAddFund").click(function(e){
 	e.preventDefault();
 	addFunds();
 })
+function autoLoad(){
+	var url=document.URL;
+	switch(url){
+		case'http://localhost:8000/':
+		loadGroup('setContent');
+	}
+}
+autoLoad();

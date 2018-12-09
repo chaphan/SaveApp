@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
-{
+{public $timestamps = false;
     public function product(){
         $this->hasMany('App\Product','group_id','id');
     }

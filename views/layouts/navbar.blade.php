@@ -12,13 +12,13 @@
 				      <a class="navbar-brand" href="#">BahoNeza</a>
 				    </div>
 				    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-				      <!-- <ul class="nav navbar-nav">
+				      <ul class="nav navbar-nav">
 				        <li class="active"><a href="#banner">Home</a></li>
 				        <li class=""><a href="#service">Services</a></li>
 				        <li class=""><a href="#about">About</a></li>
 				        <li class=""><a href="#testimonial">Testimonial</a></li>
 				        <li class=""><a href="#contact">Contact</a></li>
-				      </ul> -->
+				      </ul>
 				    </div>
 				</div>
 			  </div>

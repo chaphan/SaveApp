@@ -8,17 +8,20 @@
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data" action="">
-                    <input type="hidden" id="token" name="_token" value="<?php echo csrf_token() ?>">
-                    <div id="regGroupResponse"></div>
                     <div class="form-group">
                         <label class="">GroupName</label>
-                            <input type="text" id="names" placeholder="Enter Group name"class="form-control" name="template">
+                            <input type="text" placeholder="Enter Group name"class="form-control" name="template">
                         </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                        <textarea class="form-control" name="desc" rows="5" placeholder="Description"></textarea>
+                </div>
                 </form>
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
-                            <input type="button" class="btn btn-success pull-right" id="btnSaveGroup" value="Save">  
+                            <input type="button" class="btn btn-success pull-right" id="btnSaveSaving" value="Save">  
                             <input type="button" class="btn btn-danger" data-dismiss="modal" id="btnSaveSaving" value="Cancel">
                         </div>
                 </div>

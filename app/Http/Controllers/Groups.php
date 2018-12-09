@@ -11,17 +11,23 @@ class Groups extends Controller
         $groups= new Group();
         $groups->names = $request->names;
         $groups->username = $request->username;
-        $groups->phone = $request->phone;
-        $groups->email = $request->email;
+        $groups->phone = 0;
+        $groups->password = '';
+        $groups->delete_status =0;
+        $groups->delete_reason = '';
+        $groups->email = '';
         $groups->balance = 0;
+        $groups->doneby = 0;
+        $groups->delete_date = date("Y-m-d H:i");
         $groups->regdate = date("Y-m-d H:i");
         $groups->save();
 
-        $s_goals = new SavingGoal();
-        $s_goals->description = $request->description;
-        $s_goals->target_amount = $request->target_amount;
+/*        $s_goals = new SavingGoal();
+        $s_goals->description = 0;
+        $s_goals->target_amount = 0;
         $s_goals->group_id = $groups->id;
         $s_goals->save();
+*/        return 'ok';
 
     }
 

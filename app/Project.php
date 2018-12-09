@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Project extends Model
-{
+{public $timestamps = false;
     public function create(Request $request) {
         $project = new  Project();
         $project->description = $request->description;

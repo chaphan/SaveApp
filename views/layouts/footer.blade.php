@@ -42,9 +42,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
+						© Copyright Baho ltd. All Rights Reserved
                         <div class="credits">
          
-                            Designed by <a href="#">Baho Neza</a>
+                            Designed by <a href="#">The New</a>
                         </div>
 					</div>
 				</div>

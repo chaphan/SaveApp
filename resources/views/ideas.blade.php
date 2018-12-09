@@ -5,10 +5,7 @@
     @include('layouts.dashboard-style')
 @endsection
 @section('modals')
-    @include('modals.add_groups')
-    @include('modals.add_members')
-    @include('modals.view_members')
-    @include('modals.add_money')
+    @include('modals.business_idea')
 @endsection
 
 @section('content')
@@ -22,13 +19,13 @@
                         </div>
                     </div>
                     <div class="inbox-body">
-                        <a href="#myModal" data-toggle="modal" title="Compose" class="btn btn-compose">
-                              <i class="fa fa-upload"></i> &nbspSaving group
+                        <a href="#myModal3" data-toggle="modal" title="Compose" class="btn btn-compose">
+                              <i class="fa fa-upload"></i> &nbsp;New Business Ideas
                           </a>
 
                     </div>
                     <ul class="inbox-nav inbox-divider">
-                        <li class="active">
+                        <li>
                         <a href="/" data-toggle="modal"><i class="fa fa-inbox"></i> Groups <span class="label label-danger pull-right"></span></a>
 
                         </li>
@@ -37,10 +34,10 @@
                         </li>
                         <li>
                             <a href="/project/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Cloud funding</a>
-                        </li>
-                        <li>
+                        </li> 
+                        <li class="active">
                             <a href="/idea/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Business Idea</a>
-                        </li>
+                        </li>                        
                         <li>
                             <a href="#myModal2" data-toggle="modal"><i class=" fa fa-gear"></i> Logout</a>
                         </li>
@@ -67,10 +64,10 @@
                 </aside>
                 <aside class="lg-side">
                     <div class="inbox-head">
-                        <h4>List of Groups and Product</h4>
+                        <h4>List of Avaible Business Ideas</h4>
                         <form action="#" class="pull-right position">
                             <div class="input-append">
-                                <input type="text" class="sr-input" placeholder="Search Group">
+                                <input type="text" class="sr-input" placeholder="Search Business idea">
                                 <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
@@ -79,7 +76,7 @@
                         <div class="mail-option">
                             
                             <ul class="unstyled inbox-pagination">
-                                <li><span>1-50 of 234</span></li>
+                                <li><span>1-50</span></li>
                                 <li>
                                     <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
                                 </li>
@@ -88,23 +85,29 @@
                                 </li>
                             </ul>
                         </div>
-                        <input type="hidden" name="" id="groupid">
-                        <input type="hidden" name="" id="memberid">
-                        <table class="table table-inbox table-hover">
+                        <table id="tblGroups" class="table table-inbox table-hover">
                             <thead>
                             <tr>
-                                <th>#</th><th>Group Name</th><th>balance</th><th>created on</th><th colspan="2">Actions</th>
+                                <th>#</th><th>Idea</th><th>Capital</th><th>Description</th><th>created on</th><th colspan="2">Actions</th>
                             </tr> </thead>
                             <tbody id="loadedgroup">
                             <tr>
                                 <td>1</td>
-                                <td>baho</td>
-                                <td>15000rwf</td>
-                                <td>1/1/2017</td> 
+                                <td>Chicken Farming</td>
+                                <td>40000 rwf-150000 rwf</td>
+                                <td>Chicken lowest capital,high income</td>
+                                <td>2018-11-20</td> 
                                 <td> 
-                                    <div class="btn-group"><button type="button" class="btn btn-default"  data-toggle="modal" data-target="#modalAddMember"> Add members</button>  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalViewMember"> view members</button> </td>         
-                            
-                                
+                                    <div class="btn-group">  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalViewMember"><i class="glyphicon glyphicon-trash"></i> Delete</button> </div></td></tr> 
+
+                            <tr>
+                                <td>1</td>
+                                <td>Tailoring</td>
+                                <td>80000 rwf</td>
+                                <td>lowest capital,lower raw material,no special skills</td>
+                                <td>2018-11-20</td> 
+                                <td> 
+                                    <div class="btn-group">  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalViewMember"><i class="glyphicon glyphicon-trash"></i> Delete</button> </div></td></tr>         
                             </tbody>
                         </table>
                     </div>

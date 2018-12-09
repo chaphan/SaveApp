@@ -4,11 +4,10 @@
     @include('layouts.css-includes')
     @include('layouts.dashboard-style')
 @endsection
+
 @section('modals')
-    @include('modals.add_groups')
-    @include('modals.add_members')
-    @include('modals.view_members')
-    @include('modals.add_money')
+@include("modals.plus_project")
+@include('modals.finance_project')
 @endsection
 
 @section('content')
@@ -21,26 +20,27 @@
                             <span><a href="#">admin@baho.com</a></span>
                         </div>
                     </div>
-                    <div class="inbox-body">
-                        <a href="#myModal" data-toggle="modal" title="Compose" class="btn btn-compose">
-                              <i class="fa fa-upload"></i> &nbspSaving group
+                    <div class="i">
+                        <a href="#" data-target="#modalFundProject" data-toggle="modal" title="Compose" class="btn btn-compose">
+                              <i class="glyphicon glyphicon-upload"></i> &nbsp;Add Project
                           </a>
 
                     </div>
                     <ul class="inbox-nav inbox-divider">
-                        <li class="active">
+                        <li>
                         <a href="/" data-toggle="modal"><i class="fa fa-inbox"></i> Groups <span class="label label-danger pull-right"></span></a>
 
                         </li>
                         <li>
                             <a href="/products/view"><i class="fa fa-send"></i>Product <span class="label label-info pull-right"></span> </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="/project/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Cloud funding</a>
-                        </li>
+                        </li>  
                         <li>
                             <a href="/idea/view"><i class="fa fa-envelope-o"></i> <span class="label label-info pull-right"></span>Business Idea</a>
-                        </li>
+                        </li>                       
+                        
                         <li>
                             <a href="#myModal2" data-toggle="modal"><i class=" fa fa-gear"></i> Logout</a>
                         </li>
@@ -67,10 +67,10 @@
                 </aside>
                 <aside class="lg-side">
                     <div class="inbox-head">
-                        <h4>List of Groups and Product</h4>
+                        <h4>List of Project need Fund</h4>
                         <form action="#" class="pull-right position">
                             <div class="input-append">
-                                <input type="text" class="sr-input" placeholder="Search Group">
+                                <input type="text" class="sr-input" placeholder="Search Cloud funding">
                                 <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
@@ -88,23 +88,37 @@
                                 </li>
                             </ul>
                         </div>
-                        <input type="hidden" name="" id="groupid">
-                        <input type="hidden" name="" id="memberid">
                         <table class="table table-inbox table-hover">
-                            <thead>
+                            <tbody>
                             <tr>
-                                <th>#</th><th>Group Name</th><th>balance</th><th>created on</th><th colspan="2">Actions</th>
-                            </tr> </thead>
-                            <tbody id="loadedgroup">
+                                <th>#</th><th>Group Name</th><th>Project</th><th>Attachment</th><th>Capital</th><th>Raised</th><th>Fund</th><th>Description</th><th>created on</th><!-- <th colspan="2">Actions</th> -->
+                            </tr> 
                             <tr>
                                 <td>1</td>
-                                <td>baho</td>
-                                <td>15000rwf</td>
-                                <td>1/1/2017</td> 
+                                <td>Baho</td>
+                                <td>Chicken Farming</td>
+                                <td>business plan.PDF</td>
+                                <td>100,000</td>
+                                <td>65,000</td>
+                                <td>12,000</td>
+                                <td>Project to transform refugees daily life</td>
+                                <td>2018-06-30</td><!-- 
+                                <td><a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td> --> 
+                                </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Sarura Muryango</td>
+                                <td>Tomatoes Production</td>
+                                <td>Listen to audio</td>
+                                <td>30000 rwf</td>
+                                <td>7000 rwf</td>
+                                <td>1500 rwf</td>
+                                <td>Project that can help refugees to get more tomatoes to make their life more Healthier </td>
+                                <td>2018-11-27</td> <!-- 
                                 <td> 
-                                    <div class="btn-group"><button type="button" class="btn btn-default"  data-toggle="modal" data-target="#modalAddMember"> Add members</button>  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalViewMember"> view members</button> </td>         
-                            
-                                
+                                    <a class="btn btn-primary" data-toggle='modal' data-target='#modalFund'><i class='glyphicon glyphicon-plus'></i>Fund</a></td> --></tr> 
+
+                            <tr>
                             </tbody>
                         </table>
                     </div>

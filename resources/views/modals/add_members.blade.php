@@ -16,7 +16,12 @@
                         <label class="">Lastname</label>
                             <input type="text" placeholder="Enter Last name"class="form-control" name="lname">
                         </div>
+                        <div class="form-group">
+                        <label class="">DOB</label>
+                            <input type="date" placeholder="Enter NID"class="form-control" name="lname">
+                        </div>
                         <label class="checkbox-inline">
+                        Gender:
                                 Male<input type="radio" name="optionsRadiosinline" id="optionsRadios1"
                                 value="option1" checked>  
                                 Female<input type="radio" name="optionsRadiosinline" id="optionsRadios2"
@@ -24,13 +29,9 @@
                                 </label>
                         <div class="form-group">
                         <label class="">NID</label>
-                            <input type="text" placeholder="Enter Group name"class="form-control" name="lname">
+                            <input type="text" placeholder="Enter NID"class="form-control" name="Nid">
                         </div>
 
-                <div class="form-group">
-                    <label>Description</label>
-                        <textarea class="form-control" name="desc" rows="5" placeholder="Description"></textarea>
-                </div>
                 </form>
                 </div>
                 <div class="modal-footer">

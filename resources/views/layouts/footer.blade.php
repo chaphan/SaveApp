@@ -8,7 +8,7 @@
 								<h4 class="white no-padding">About Us</h4>
 							</div>
 							<div class="info-sec">
-								<p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
+								<p>this platform helps refugees to be included in society economically and financially you can provide your funds to help them</p>
 							</div>
 					</div>
 					<div class="col-md-4 col-sm-4 marb20">
@@ -17,9 +17,8 @@
 						</div>
 						<div class="info-sec">
 							<ul class="quick-info">
-								<li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
-								<li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
-								<li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+								<li><a href="index.html"><i class="fa fa-circle"></i>Settings</a></li>
+								<li><a href="#service"><i class="fa fa-circle"></i>Exit</a></li>
 							</ul>
 						</div>
 					</div>
